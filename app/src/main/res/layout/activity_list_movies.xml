@@ -20,7 +20,7 @@ tools:context=".movies.listMovies.view.ListMoviesActivity">
             android:layout_marginBottom="10dp"
             android:gravity="center"
             android:text="Películas populares"
-            android:textColor="@color/black"
+            android:textColor="@color/colorPrimaryText"
             android:textSize="30dp"
             android:textStyle="bold" />
     </LinearLayout>

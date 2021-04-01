@@ -1,43 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:id="@+id/itemMovieCardview"
     android:layout_width="match_parent"
     android:layout_height="150dp"
-    android:orientation="horizontal"
-    android:weightSum="100"
-    android:layout_margin="10dp">
+    android:layout_margin="10dp"
+    android:clickable="true"
+    card_view:cardCornerRadius="4dp"
+    card_view:cardElevation="4dp"
+    card_view:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/imgImagen"
-        android:layout_width="0dp"
+        android:layout_width="130dp"
         android:layout_height="match_parent"
-        android:layout_weight="34"
         android:scaleType="fitXY"/>
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_weight="66"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:padding="10dp"
         android:layout_marginLeft="20dp"
-        >
+        android:layout_toRightOf="@+id/imgImagen">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
         <TextView
             android:id="@+id/txtTitulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:textColor="@color/colorPrimaryText"
             android:text="Título"
-            android:textSize="30sp"/>
-
+            android:textSize="20sp"/>
 
         <TextView
             android:id="@+id/txtPuntuacion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:textColor="@color/colorPrimaryText"
             android:text="Puntuación"
             android:textSize="20sp"/>
+        </LinearLayout>
 
-    </LinearLayout>
-</LinearLayout>
+
+
+        </RelativeLayout>
+    </RelativeLayout>
+</com.google.android.material.card.MaterialCardView>
