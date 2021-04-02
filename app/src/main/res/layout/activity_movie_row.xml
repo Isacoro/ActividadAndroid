@@ -2,14 +2,17 @@
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/itemMovieCardview"
     android:layout_width="match_parent"
     android:layout_height="150dp"
     android:layout_margin="10dp"
     android:clickable="true"
-    card_view:cardCornerRadius="4dp"
-    card_view:cardElevation="4dp"
-    card_view:cardUseCompatPadding="true">
+    card_view:cardCornerRadius="8dp"
+    card_view:cardElevation="15dp"
+    card_view:cardUseCompatPadding="true"
+    android:padding="@dimen/padding_general"
+    app:cardBackgroundColor="@color/colorWhite">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -38,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimaryText"
-            android:text="Título"
+            android:text="@string/ativity_movie_row_text_titulo"
             android:textSize="20sp"/>
 
         <TextView
@@ -46,12 +49,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimaryText"
-            android:text="Puntuación"
+            android:text="@string/activity_movie_row_text_puntuacion"
+            android:layout_marginTop="5dp"
             android:textSize="20sp"/>
+
         </LinearLayout>
 
-
-
-        </RelativeLayout>
+    </RelativeLayout>
     </RelativeLayout>
 </com.google.android.material.card.MaterialCardView>

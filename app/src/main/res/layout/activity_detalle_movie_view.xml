@@ -7,23 +7,24 @@
     android:layout_height="match_parent"
     tools:context=".movies.listMovies.view.DetalleMovieView"
     android:orientation="vertical"
-    android:weightSum="100">
+    android:weightSum="100"
+    android:background="@color/colorWhite">
 
     <ImageView
         android:id="@+id/imgImagen"
-        android:layout_width="300dp"
-        android:layout_height="400dp"
+        android:layout_width="250dp"
+        android:layout_height="350dp"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:layout_weight="34"
-        android:scaleType="fitXY" />
+        android:scaleType="fitXY"/>
 
     <TextView
         android:id="@+id/txtDescripcion"
+        android:textColor="@color/colorPrimaryText"
         android:layout_width="match_parent"
         android:layout_height="384dp"
         android:layout_margin="10dp"
         android:layout_weight="66"
-        android:text="Sinopsis: "
-        android:textSize="16sp" />
+        android:text="@string/activity_detalle_movie_view_text_sinopsis"
+        android:textSize="16sp"/>
 </LinearLayout>

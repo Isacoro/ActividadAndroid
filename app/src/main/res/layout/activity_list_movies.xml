@@ -19,14 +19,14 @@ tools:context=".movies.listMovies.view.ListMoviesActivity">
             android:layout_height="50dp"
             android:layout_marginBottom="10dp"
             android:gravity="center"
-            android:text="Películas populares"
+            android:text="@string/activity_list_movies_text_peliculas_populares"
             android:textColor="@color/colorPrimaryText"
             android:textSize="30dp"
             android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:orientation="horizontal"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
@@ -38,7 +38,8 @@ tools:context=".movies.listMovies.view.ListMoviesActivity">
             android:layout_width="62dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Idioma" />
+            android:layout_gravity="right"
+            android:text="@string/activity_list_movies_text_elegir_idioma" />
 
         <Spinner
             android:id="@+id/spinnerFiltro"

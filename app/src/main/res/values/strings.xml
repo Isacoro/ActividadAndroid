@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ActividadAndroid</string>
+    <string name="activity_movie_row_text_puntuacion">Puntuación</string>
+    <string name="ativity_movie_row_text_titulo">Título</string>
+    <string name="activity_list_movies_text_peliculas_populares">Películas populares</string>
+    <string name="activity_list_movies_text_elegir_idioma">Elegir películas según idioma</string>
+    <string name="activity_detalle_movie_view_text_sinopsis">Sinopsis:</string>
 </resources>
