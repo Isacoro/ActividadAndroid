@@ -2,6 +2,7 @@ package com.isabel.actividadandroid.movies.filtroMovies.model;
 
 import android.os.AsyncTask;
 
+import com.isabel.actividadandroid.BuildConfig;
 import com.isabel.actividadandroid.beans.Movie;
 import com.isabel.actividadandroid.movies.filtroMovies.contract.FiltroMovieContract;
 import com.isabel.actividadandroid.utils.Post;
@@ -14,8 +15,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class FiltroMovieModel implements FiltroMovieContract.Model {
-
-    private String URL = "https://api.themoviedb.org/3/movie/popular?api_key=efccdf33f1effa49b2cd1e82a48f2c21&language=es-ES&page=1";
 
     private ArrayList<Movie> listaFiltroMovies;
     private OnMovieListener onMovieListener;
@@ -50,7 +49,7 @@ public class FiltroMovieModel implements FiltroMovieContract.Model {
 
             //Traemos los datos en JSONObject
             try {
-                JSONObject objectMovies = post.getServerDataGetObject(URL + idioma);
+                JSONObject objectMovies = post.getServerDataGetObject(BuildConfig.API_URL + idioma);
                 JSONArray listMovies = objectMovies.getJSONArray("results");
                 listaFiltroMovies = Movie.getArrayListFromJSON(listMovies);
             } catch (JSONException e) {
