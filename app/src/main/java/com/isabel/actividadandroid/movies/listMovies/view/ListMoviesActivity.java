@@ -2,10 +2,12 @@ package com.isabel.actividadandroid.movies.listMovies.view;
 
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -13,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.isabel.actividadandroid.R;
 import com.isabel.actividadandroid.adapter.MovieAdapter;
 import com.isabel.actividadandroid.beans.Movie;
@@ -29,6 +32,9 @@ public class ListMoviesActivity extends AppCompatActivity implements ListMoviesC
     private RecyclerView recycler;
     private RecyclerView.LayoutManager layoutManager;
 
+    private ProgressBar progressBar;
+    private FloatingActionButton buttonFavorite;
+
 
     private String [] elegir = {" ", "Aleman", "Coreano", "Español", "Francés", "Inglés"};
 
@@ -38,15 +44,22 @@ public class ListMoviesActivity extends AppCompatActivity implements ListMoviesC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_movies);
 
+        progressBar = findViewById(R.id.activity_ProgressBar);
+        progressBar.setVisibility(View.VISIBLE);
+
         listMoviesPresenter = new ListMoviesPresenter(this);
         listMoviesPresenter.getMovies();
 
         cargaSpinner();
+
+
     }
 
     //Implemento los métodos de ListMoviesContract
     @Override
     public void success(ArrayList<Movie> movies) {
+        progressBar.setVisibility(View.GONE);
+
         recycler = (RecyclerView) findViewById(R.id.recycler);
         recycler.setHasFixedSize(true);
 

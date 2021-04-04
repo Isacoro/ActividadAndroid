@@ -57,10 +57,10 @@
         </LinearLayout>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/activityFavourite"
+            android:id="@+id/activityFavorite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorPrimaryAccent"
+            android:backgroundTint="@color/colorBlack"
             app:srcCompat="@drawable/ic_baseline_favorite_24"
             app:tint="@color/colorWhite"
             android:layout_alignParentEnd="true"

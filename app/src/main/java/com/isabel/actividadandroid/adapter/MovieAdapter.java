@@ -1,6 +1,7 @@
 package com.isabel.actividadandroid.adapter;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.isabel.actividadandroid.R;
 import com.isabel.actividadandroid.beans.Movie;
 import com.isabel.actividadandroid.movies.listMovies.view.DetalleMovieView;
@@ -53,6 +55,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
         holder.titulo.setText(movie.getTitulo());
         holder.puntuacion.setText(movie.getPuntuacion());
+
         //Para insertar las imágenes
         String url = "https://image.tmdb.org/t/p/original";
         Picasso.get().load(url + movie.getImagen()).into(holder.imagen);
@@ -62,7 +65,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
             navegar.putExtra("imagen", movie.getImagen());
             navegar.putExtra("sinopsis", movie.getSinopsis());
             v.getContext().startActivity(navegar);
-
         });
     }
 
@@ -70,6 +72,4 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     public int getItemCount() {
         return listMovies.size();
     }
-
-
 }
