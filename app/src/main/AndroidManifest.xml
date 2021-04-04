@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ActividadAndroid">
-        <activity android:name=".movies.filtroMovies.view.FiltroMoviesView"></activity>
+        <activity android:name=".movies.filtroMovies.view.FiltroMoviesView" />
         <activity android:name=".movies.listMovies.view.DetalleMovieView" />
         <activity android:name=".MovieAdapter" />
         <activity android:name=".movies.listMovies.view.ListMoviesActivity$DetalleMovieView" />

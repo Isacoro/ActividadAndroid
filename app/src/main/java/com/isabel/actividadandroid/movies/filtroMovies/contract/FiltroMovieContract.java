@@ -16,13 +16,13 @@ public interface FiltroMovieContract{
 
     //Método del presentador. Devolver películas
     interface Presenter{
-        void getMovies(Context context, String idioma);
+        void getMovies(Context context, String language);
     }
 
     //Devuelve las películas desde el servidor
     public interface Model{
         //Tiene que mandar el callback (camino de vuelta) que es OnListMoviesListener
-        void getMoviesWS(Context context, OnMovieListener onMovieListener, String idioma);
+        void getMoviesWS(Context context, OnMovieListener onMovieListener, String language);
 
         //Instancia para el modelo. Me dice si ha ido bien o mal la ejecución
         interface OnMovieListener{

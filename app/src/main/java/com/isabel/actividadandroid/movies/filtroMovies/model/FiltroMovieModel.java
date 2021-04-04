@@ -3,6 +3,8 @@ package com.isabel.actividadandroid.movies.filtroMovies.model;
 import android.content.Context;
 import android.os.AsyncTask;
 
+import androidx.annotation.Nullable;
+
 import com.isabel.actividadandroid.BuildConfig;
 import com.isabel.actividadandroid.beans.Movie;
 import com.isabel.actividadandroid.beans.MovieApiResult;
@@ -24,10 +26,10 @@ import retrofit2.Response;
 public class FiltroMovieModel implements FiltroMovieContract.Model {
 
     @Override
-    public void getMoviesWS(Context context, OnMovieListener onMovieListener, String idioma) {
+    public void getMoviesWS(Context context, final OnMovieListener onMovieListener, String language) {
         ApiClient apiClient = new ApiClient(context);
 
-        final Call<MovieApiResult> request = apiClient.getMoviesLanguage(idioma);
+        final Call<MovieApiResult> request = apiClient.getMoviesLanguage(language);
 
         request.enqueue(new Callback<MovieApiResult>() {
             @Override
@@ -38,11 +40,10 @@ public class FiltroMovieModel implements FiltroMovieContract.Model {
             }
 
             @Override
-            public void onFailure(Call<MovieApiResult> call, Throwable t) {
+            public void onFailure(@Nullable Call<MovieApiResult> call,@Nullable Throwable t) {
                 t.printStackTrace();
                 onMovieListener.onFailure(t.getLocalizedMessage());
             }
         });
-
     }
 }

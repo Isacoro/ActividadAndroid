@@ -36,7 +36,7 @@ public class ListMoviesActivity extends AppCompatActivity implements ListMoviesC
     private FloatingActionButton buttonFavorite;
 
 
-    private String [] elegir = {" ", "Aleman", "Coreano", "Español", "Francés", "Inglés"};
+    private String [] elegir = {"Elegir idioma", "Aleman", "Coreano", "Español", "Francés", "Inglés"};
 
 
     @Override
@@ -51,8 +51,6 @@ public class ListMoviesActivity extends AppCompatActivity implements ListMoviesC
         listMoviesPresenter.getMovies(this);
 
         cargaSpinner();
-
-
     }
 
     //Implemento los métodos de ListMoviesContract
@@ -88,42 +86,42 @@ public class ListMoviesActivity extends AppCompatActivity implements ListMoviesC
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String idioma = parent.getItemAtPosition(position).toString();
-                String idIdioma = null;
+                String language;
                 Intent navegar = new Intent(getBaseContext(), FiltroMoviesView.class);
 
                 switch(idioma){
-                    case " ":
+                    case "Elegir idioma":
                         return;
                     case "Alemán":
-                        idIdioma = "de";
-                        navegar.putExtra("idIdioma", idIdioma);
+                        language = "de-DE";
+                        navegar.putExtra("language", language);
                         break;
                     case "Coreano":
-                        idIdioma = "ko";
-                        navegar.putExtra("idIdioma", idIdioma);
+                        language = "ko-KO";
+                        navegar.putExtra("language", language);
                         break;
                     case "Español":
-                        idIdioma = "es";
-                        navegar.putExtra("idIdioma", idIdioma);
+                        language = "es-ES";
+                        navegar.putExtra("language", language);
                         break;
                     case "Francés":
-                        idIdioma = "fr";
-                        navegar.putExtra("idIdioma", idIdioma);
+                        language = "fr-FR";
+                        navegar.putExtra("language", language);
                         break;
                     case "Inglés":
-                        idIdioma = "en";
-                        navegar.putExtra("idIdioma", idIdioma);
+                        language = "en-EN";
+                        navegar.putExtra("language", language);
                         break;
                     default:
                         break;
                 }
-                Toast.makeText(parent.getContext(), idioma, Toast.LENGTH_SHORT).show();
+                Toast.makeText(parent.getContext(), idioma, Toast.LENGTH_LONG).show();
                 startActivity(navegar);
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                Toast.makeText(parent.getContext(), "Selecciona un idioma", Toast.LENGTH_SHORT).show();
+                Toast.makeText(parent.getContext(), "Selecciona un idioma", Toast.LENGTH_LONG).show();
             }
         });
     }

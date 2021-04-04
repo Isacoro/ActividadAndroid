@@ -20,7 +20,7 @@ public class FiltroMoviePresenter implements FiltroMovieContract.Presenter {
 
 
     @Override
-    public void getMovies(Context context, String idioma) {
+    public void getMovies(Context context, String language) {
         filtroMovieModel.getMoviesWS(context, new FiltroMovieContract.Model.OnMovieListener() {
             @Override
             public void onFinished(ArrayList<Movie> movies) {
@@ -31,6 +31,6 @@ public class FiltroMoviePresenter implements FiltroMovieContract.Presenter {
             public void onFailure(String error) {
                 filtroVista.error("Error al traer los datos");
             }
-        },idioma);
+        },language);
     }
 }

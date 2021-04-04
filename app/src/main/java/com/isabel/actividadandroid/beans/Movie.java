@@ -20,8 +20,7 @@ public class Movie {
     private String imagen;
     @SerializedName("vote_average")
     private String puntuacion;
-    @SerializedName("original_language")
-    private String idioma;
+    private String language;
 
 
     public int getId() {
@@ -64,12 +63,12 @@ public class Movie {
         this.puntuacion = puntuacion;
     }
 
-    public String getIdioma() {
-        return idioma;
+    public String getLanguage() {
+        return language;
     }
 
-    public void setIdioma(String idioma) {
-        this.idioma = idioma;
+    public void setLanguage(String language) {
+        this.language = language;
     }
 
 
