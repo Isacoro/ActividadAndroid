@@ -31,8 +31,8 @@ public class FiltroMoviesView extends AppCompatActivity implements FiltroMovieCo
         Intent navegar = this.getIntent();
         String idioma = navegar.getStringExtra("idioma");
 
-        filtroMoviePresenter = new FiltroMoviePresenter(this, idioma);
-        filtroMoviePresenter.getMovies(idioma);
+        filtroMoviePresenter = new FiltroMoviePresenter(this);
+        filtroMoviePresenter.getMovies(this, idioma);
     }
 
     @Override

@@ -1,58 +1,41 @@
 package com.isabel.actividadandroid.movies.listMovies.model;
 
-import android.os.AsyncTask;
+import android.content.Context;
 
-import com.isabel.actividadandroid.BuildConfig;
 import com.isabel.actividadandroid.beans.Movie;
+import com.isabel.actividadandroid.beans.MovieApiResult;
 import com.isabel.actividadandroid.movies.listMovies.contract.ListMoviesContract;
-import com.isabel.actividadandroid.utils.Post;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.isabel.actividadandroid.retrofit.ApiClient;
 
 import java.util.ArrayList;
 
-public class ListMoviesModel implements ListMoviesContract.Model{
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
-    private ArrayList<Movie> listaArray;
-    OnListMoviesListener onListMoviesListener;
+public class ListMoviesModel implements ListMoviesContract.Model{
 
 
     @Override
-    public void getMoviesWS(OnListMoviesListener onListMoviesListener) {
-        this.onListMoviesListener = onListMoviesListener;
-        TrabajandoEnApi hilo = new TrabajandoEnApi();
-        hilo.execute();
-    }
+    public void getMoviesWS(Context context, OnListMoviesListener onListMoviesListener) {
+        ApiClient apiClient = new ApiClient(context);
 
-    class TrabajandoEnApi extends AsyncTask<String, Integer, Boolean> {
+        final Call<MovieApiResult> request = apiClient.getMovies();
 
-        @Override
-        protected Boolean doInBackground(String... strings) {
-            //Comunicarme con el servidor
-            Post post = new Post();
+        request.enqueue(new Callback<MovieApiResult>(){
 
-            //Traemos los datos en JSONObject
-            try {
-                JSONObject objectMovies = post.getServerDataGetObject(BuildConfig.API_URL);
-                JSONArray listMovies = objectMovies.getJSONArray("results");
-                listaArray = Movie.getArrayListFromJSON(listMovies);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return true;
-        }
-
-        @Override
-        protected void onPostExecute(Boolean respuesta){
-            if(respuesta){
-                if(listaArray != null && listaArray.size() > 0){
-                    onListMoviesListener.onFinished(listaArray);
+            @Override
+            public void onResponse(Call<MovieApiResult> call, Response<MovieApiResult> response) {
+                if (response != null && response.body() != null) {
+                    onListMoviesListener.onFinished(new ArrayList<Movie>(response.body().getResults()));
                 }
-            }else{
-                onListMoviesListener.onFailure("Error al traer los datos del servidor");
             }
-        }
+
+            @Override
+            public void onFailure(Call<MovieApiResult> call, Throwable t) {
+                t.printStackTrace();
+                onListMoviesListener.onFailure(t.getLocalizedMessage());
+            }
+        });
     }
 }

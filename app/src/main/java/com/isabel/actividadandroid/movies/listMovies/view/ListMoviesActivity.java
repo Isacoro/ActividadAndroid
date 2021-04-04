@@ -48,7 +48,7 @@ public class ListMoviesActivity extends AppCompatActivity implements ListMoviesC
         progressBar.setVisibility(View.VISIBLE);
 
         listMoviesPresenter = new ListMoviesPresenter(this);
-        listMoviesPresenter.getMovies();
+        listMoviesPresenter.getMovies(this);
 
         cargaSpinner();
 

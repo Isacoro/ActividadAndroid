@@ -1,5 +1,7 @@
 package com.isabel.actividadandroid.movies.filtroMovies.presenter;
 
+import android.content.Context;
+
 import com.isabel.actividadandroid.beans.Movie;
 import com.isabel.actividadandroid.movies.filtroMovies.contract.FiltroMovieContract;
 import com.isabel.actividadandroid.movies.filtroMovies.model.FiltroMovieModel;
@@ -10,18 +12,16 @@ public class FiltroMoviePresenter implements FiltroMovieContract.Presenter {
 
     private FiltroMovieContract.View filtroVista;
     private FiltroMovieModel filtroMovieModel;
-    private String idioma;
 
-    public FiltroMoviePresenter (FiltroMovieContract.View vista, String idioma){
+    public FiltroMoviePresenter (FiltroMovieContract.View vista){
         this.filtroVista = vista;
-        this.idioma = idioma;
-        this.filtroMovieModel = new FiltroMovieModel(idioma);
+        this.filtroMovieModel = new FiltroMovieModel();
     }
 
 
     @Override
-    public void getMovies(String idIdioma) {
-        filtroMovieModel.getMoviesWS(new FiltroMovieContract.Model.OnMovieListener() {
+    public void getMovies(Context context, String idioma) {
+        filtroMovieModel.getMoviesWS(context, new FiltroMovieContract.Model.OnMovieListener() {
             @Override
             public void onFinished(ArrayList<Movie> movies) {
                 filtroVista.success(movies);

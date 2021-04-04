@@ -1,5 +1,7 @@
 package com.isabel.actividadandroid.movies.listMovies.presenter;
 
+import android.content.Context;
+
 import com.isabel.actividadandroid.beans.Movie;
 import com.isabel.actividadandroid.movies.listMovies.contract.ListMoviesContract;
 import com.isabel.actividadandroid.movies.listMovies.model.ListMoviesModel;
@@ -18,12 +20,9 @@ public class ListMoviesPresenter implements ListMoviesContract.Presenter {
     }
 
 
-    //Implemento el método Presenter de la interface
     @Override
-    public void getMovies() {
-        //Le pido que me dé las películas pasándole como dato por dónde
-        listMoviesModel.getMoviesWS(new ListMoviesContract.Model.OnListMoviesListener() {
-
+    public void getMovies(Context context) {
+        listMoviesModel.getMoviesWS(context, new ListMoviesContract.Model.OnListMoviesListener() {
             @Override
             public void onFinished(ArrayList<Movie> movies) {
                 vista.success(movies);
@@ -34,7 +33,6 @@ public class ListMoviesPresenter implements ListMoviesContract.Presenter {
                 vista.error("Error al traer los datos");
             }
         });
-
     }
 }
 
