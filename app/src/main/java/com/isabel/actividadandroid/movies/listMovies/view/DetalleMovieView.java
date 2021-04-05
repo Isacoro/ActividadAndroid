@@ -2,6 +2,7 @@ package com.isabel.actividadandroid.movies.listMovies.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.isabel.actividadandroid.R;
 import com.isabel.actividadandroid.movies.listMovies.presenter.ListMoviesPresenter;
 import com.squareup.picasso.Picasso;
@@ -27,13 +29,14 @@ public class DetalleMovieView extends AppCompatActivity {
         setContentView(R.layout.activity_detalle_movie_view);
 
         initComponents();
-      //  buttonBack = findViewById(R.id.activityBackToPage);
-       /* buttonBack.setOnClickListener(new View.OnClickListener() {
+        buttonBack = findViewById(R.id.activityBackToPage);
+        buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listMoviesPresenter.getMovies();
+                Intent intent = new Intent(DetalleMovieView.this, ListMoviesActivity.class);
+                startActivity(intent);
             }
-        });*/
+        });
 
         Intent intent = getIntent();
         String image = intent.getStringExtra("imagen");
