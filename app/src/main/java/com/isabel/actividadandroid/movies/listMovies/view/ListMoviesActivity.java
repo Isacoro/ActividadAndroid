@@ -36,7 +36,7 @@ public class ListMoviesActivity extends AppCompatActivity implements ListMoviesC
     private FloatingActionButton buttonFavorite;
 
 
-    private String [] elegir = {"Elegir idioma", "Aleman", "Coreano", "Español", "Francés", "Inglés"};
+    private String [] elegir = {"Elegir idioma", "Alemán", "Coreano", "Español", "Francés", "Inglés"};
 
 
     @Override
@@ -93,24 +93,24 @@ public class ListMoviesActivity extends AppCompatActivity implements ListMoviesC
                     case "Elegir idioma":
                         return;
                     case "Alemán":
-                        language = "de-DE";
-                        navegar.putExtra("language", language);
+                        language = "de";
+                        navegar.putExtra("original_language", language);
                         break;
                     case "Coreano":
-                        language = "ko-KO";
-                        navegar.putExtra("language", language);
+                        language = "ko";
+                        navegar.putExtra("original_language", language);
                         break;
                     case "Español":
-                        language = "es-ES";
-                        navegar.putExtra("language", language);
+                        language = "es";
+                        navegar.putExtra("original_language", language);
                         break;
                     case "Francés":
-                        language = "fr-FR";
-                        navegar.putExtra("language", language);
+                        language = "fr";
+                        navegar.putExtra("original_language", language);
                         break;
                     case "Inglés":
-                        language = "en-EN";
-                        navegar.putExtra("language", language);
+                        language = "en";
+                        navegar.putExtra("original_language", language);
                         break;
                     default:
                         break;

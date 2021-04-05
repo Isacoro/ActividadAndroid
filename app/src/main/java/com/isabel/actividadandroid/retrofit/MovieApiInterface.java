@@ -12,6 +12,6 @@ public interface MovieApiInterface {
     @GET("movie/popular?api_key=efccdf33f1effa49b2cd1e82a48f2c21&language=es-ES&page=1")
     Call<MovieApiResult> getMovies();
 
-    @GET("movie/popular?api_key=efccdf33f1effa49b2cd1e82a48f2c21&language=")
-    Call<MovieApiResult> getMoviesLanguage(@Query("with_language") String idioma);
+    @GET("movie/popular?api_key=efccdf33f1effa49b2cd1e82a48f2c21&language=es-ES&original_language=")
+    Call<MovieApiResult> getMoviesLanguage(@Query("with_original_language") String language);
 }

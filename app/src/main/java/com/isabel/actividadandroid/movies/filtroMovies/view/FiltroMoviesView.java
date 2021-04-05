@@ -29,7 +29,7 @@ public class FiltroMoviesView extends AppCompatActivity implements FiltroMovieCo
 
     private ProgressBar progressBar;
 
-    private String [] elegir = {"Elegir idioma", "Aleman", "Coreano", "Español", "Francés", "Inglés"};
+    private String [] elegir = {"Elegir idioma", "Alemán", "Coreano", "Español", "Francés", "Inglés"};
 
 
     @Override
@@ -43,7 +43,7 @@ public class FiltroMoviesView extends AppCompatActivity implements FiltroMovieCo
         cargaSpinner();
 
         Intent navegar = this.getIntent();
-        String language = navegar.getStringExtra("language");
+        String language = navegar.getStringExtra("original_language");
 
         filtroMoviePresenter = new FiltroMoviePresenter(this);
         filtroMoviePresenter.getMovies(this, language);
@@ -85,23 +85,23 @@ public class FiltroMoviesView extends AppCompatActivity implements FiltroMovieCo
                     case "Elegir idioma":
                         return;
                     case "Alemán":
-                        language = "de-DE";
-                        navegar.putExtra("language", language);
+                        language = "de";
+                        navegar.putExtra("original_language", language);
                         break;
                     case "Coreano":
-                        language = "ko-KO";
-                        navegar.putExtra("language", language);
+                        language = "ko";
+                        navegar.putExtra("original_language", language);
                         break;
                     case "Español":
-                        language = "es-ES";
-                        navegar.putExtra("language", language);
+                        language = "es";
+                        navegar.putExtra("original_language", language);
                         break;
                     case "Francés":
-                        language = "fr-FR";
-                        navegar.putExtra("language", language);
+                        language = "fr";
+                        navegar.putExtra("original_language", language);
                         break;
                     case "Inglés":
-                        language = "en-EN";
+                        language = "en";
                         navegar.putExtra("language", language);
                         break;
                     default:

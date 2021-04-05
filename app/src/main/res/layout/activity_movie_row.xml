@@ -41,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimaryText"
-            android:text="@string/ativity_movie_row_text_titulo"
+            android:text="@string/activity_movie_row_text_titulo"
             android:textSize="20sp"/>
 
         <TextView

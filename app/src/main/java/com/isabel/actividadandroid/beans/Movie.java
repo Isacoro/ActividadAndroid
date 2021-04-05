@@ -20,6 +20,7 @@ public class Movie {
     private String imagen;
     @SerializedName("vote_average")
     private String puntuacion;
+    @SerializedName("original_language")
     private String language;
 
 
