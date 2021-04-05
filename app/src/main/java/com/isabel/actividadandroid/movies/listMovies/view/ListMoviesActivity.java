@@ -3,6 +3,7 @@ package com.isabel.actividadandroid.movies.listMovies.view;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.ColorFilter;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -33,7 +34,6 @@ public class ListMoviesActivity extends AppCompatActivity implements ListMoviesC
     private RecyclerView.LayoutManager layoutManager;
 
     private ProgressBar progressBar;
-    private FloatingActionButton buttonFavorite;
 
 
     private String [] elegir = {"Elegir idioma", "Alemán", "Coreano", "Español", "Francés", "Inglés"};
@@ -53,6 +53,8 @@ public class ListMoviesActivity extends AppCompatActivity implements ListMoviesC
         cargaSpinner();
     }
 
+
+
     //Implemento los métodos de ListMoviesContract
     @Override
     public void success(ArrayList<Movie> movies) {
@@ -67,7 +69,6 @@ public class ListMoviesActivity extends AppCompatActivity implements ListMoviesC
         //Declaro el adaptador
         MovieAdapter adapter = new MovieAdapter(movies);
         recycler.setAdapter(adapter);
-
     }
 
     @Override

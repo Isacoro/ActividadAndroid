@@ -29,7 +29,8 @@
         android:layout_height="match_parent"
         android:padding="10dp"
         android:layout_marginLeft="20dp"
-        android:layout_toRightOf="@+id/imgImagen">
+        android:layout_toRightOf="@+id/imgImagen"
+        android:gravity="center">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -42,7 +43,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimaryText"
             android:text="@string/activity_movie_row_text_titulo"
-            android:textSize="20sp"/>
+            android:textSize="18sp"/>
 
         <TextView
             android:id="@+id/txtPuntuacion"
@@ -51,22 +52,10 @@
             android:textColor="@color/colorPrimaryText"
             android:text="@string/activity_movie_row_text_puntuacion"
             android:layout_marginTop="5dp"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:drawableLeft="@drawable/ic_baseline_grade_24"/>
 
         </LinearLayout>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/activityFavorite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorBlack"
-            app:srcCompat="@drawable/ic_baseline_favorite_24"
-            app:tint="@color/colorWhite"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            app:borderWidth="2dp"/>
-
     </RelativeLayout>
     </RelativeLayout>
 </com.google.android.material.card.MaterialCardView>
