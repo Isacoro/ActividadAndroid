@@ -3,13 +3,6 @@ package com.isabel.actividadandroid.beans;
 import com.google.gson.annotations.SerializedName;
 
 public class Movie {
-//    private static final String ID = "id";
-//    private static final String TITLE = "title";
-//    private static final String OVERVIEW = "overview";
-//    private static final String POSTER_PATH = "poster_path";
-//    private static final String VOTE_AVERAGE = "vote_average";
-//    private static final String ORIGINAL_LANGUAGE = "original_language";
-
 
     private int id;
     @SerializedName("title")
